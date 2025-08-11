@@ -6,32 +6,374 @@
     <title>404 - Page Not Found</title>
     <!-- Link to your main css styles -->
     <link rel="stylesheet" href="styles.css" />
+    <!-- Import Google fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&familySpace+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <!-- Making the text and layout more visually appealing -->
     <style>
+        /* CSS variable for consistent theming */
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #f59e0b;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --error-gradient: linear-gradient(45deg, #ff6b6b, #feca57, #ff9ff3, #54a0ff);
+        }
+
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated background particles */
+        .bg-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: floatUp 6s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s };
+        .particle:nth-child(2) { left: 20%; animation-delay: 1s };
+        .particle:nth-child(3) { left: 30%; animation-delay: 2s };
+        .particle:nth-child(4) { left: 40%; animation-delay: 0.5s };
+        .particle:nth-child(5) { left: 50%; animation-delay: 1.5s };
+        .particle:nth-child(6) { left: 60%; animation-delay: 3s };
+        .particle:nth-child(7) { left: 70%; animation-delay: 2.5s };
+        .particle:nth-child(8) { left: 80%; animation-delay: 4s };
+        .particle:nth-child(9) { left: 90%; animation-delay: 0.8s };
+
+        @keyframes floatUp {
+            0% {
+                bottom: -10px;
+                opacity: 0;
+                transform: translateX(0px) rotate(0deg);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                bottom: 100vh;
+                opacity: 0;
+                transform: translateX(-20px) rotate(360deg);
+            }
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Header enhancements */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100%;
+        }
+
+        header h1 {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Main content styling */
+        main {
+            position: relative;
+            z-index: 10;
+        }
+
         .error-page {
             text-align: center;
             padding: 4rem 1rem;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
+
+        /* Enhanced 404 number */
         .error-page h1 {
-            font-size: 6rem;
-            color: var(--primary-color);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 8rem;
+            font-weight: 800;
+            background: var(--error-gradient);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 1rem;
+            position: relative;
+            animation: gradientShift 3s ease-in-out infinte, bounceIn 1s ease-out;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            letter-spacing: -0.1em;
         }
+
+        /* Glowing effect behind the 404 */
+        .error-page h1::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            z-index: -1;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.6; }
+        }
+
+        @keyframes slideInLeft {
+            0% { transform: translateX(-100px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Enhanced paragraph text */
         .error-page p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: white;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            line-height: 1.7;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes slideInUp {
+            0% { transform: translateY(30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Enhanced button container */
+        .button-container {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+
+        /* Enhanced button styles */
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            min-width: 180px;
+        }
+
+        /* Primary button (Take Me Home) */
+        .btn:first-child {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            border: none;
+        }
+
+        .btn:first-child::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn:first-child:hover::before {
+            left: 100%;
+        }
+
+        .btn:first-child:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
+        }
+
+        /* Secodary button (Contact Support) */
+        .btn:last-child {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn:last-child:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2);
+        }
+
+        /* 3D tilt effect on hover */
+        .error-page:hover h1 {
+            transform: perspective(1000px) rotateX(10deg) rotateY(-10deg);
+            transition: transform 0.3s ease;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            .error-page {
+                padding: 2rem 1rem;
+            }
+
+            .error-page p {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .btn {
+                width: 200px;
+                padding: 0.9rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-page h1 {
+                font-size: 4rem;
+            }
+
+            .error-page p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+        }
+
+        /* Additional visual flourishes */
+        .error-page::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .error-page::after {
+            content: '';
+            position: absolute;
+            bottom: 20%; 
+            right: 15%;
+            width: 80px;
+            height: 80px;
+            background: radiant-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 5s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Hover effect for the entire page */
+        .error-page:hover .btn {
+            animation: wiggle 0.5s ease-in-out;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-2deg); }
+            75% { transform: rotate(2deg); }
         }
     </style>
 </head>
 <body>
+    <!-- Animated background particles -->
+    <div class="bg-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
     <header>
         <div class="container">
             <h1>You've just hit a snag!</h1>
         </div>
     </header>
+
     <main class="container">
         <div class="error-page">
-            <h1>Uh-oh! Page not found</h1>
+            <h1>404</h1>
             <p>
                 The page you're looking for seems to have wandered off into the digital wilderness.
                 Don't worry though, we'll help you find your way back!
