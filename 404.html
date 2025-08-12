@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Page Not Found</title>
     <!-- Link to your main css styles -->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     <!-- Import Google fonts for better typography -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&familySpace+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <!-- Making the text and layout more visually appealing -->
@@ -378,14 +378,14 @@
                 The page you're looking for seems to have wandered off into the digital wilderness.
                 Don't worry though, we'll help you find your way back!
             </p>
-            <a href="/" class="btn">Take Me Home</a>
-            <a href="/contact" class="btn">Contact Support</a>
+            <a href="{% url 'home' %}" class="btn">Take Me Home</a>
+            <a href="{% url 'contact' %}" class="btn">Contact Support</a>
         </div>
     </main>
 
     <footer>
         <div class="container">
-            &copy; 2025 Gabe's Kitchen. All rights reserved.
+            &copy; 2025 The Fresh Table. All rights reserved.
         </div>
     </footer>
 </body>
