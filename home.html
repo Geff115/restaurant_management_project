@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | The Fresh Table</title>
+
+    <!-- Link to our css stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🍽️ The Fresh Table</h1>
+            <nav>
+                <a href="/home">Home</a>
+                <a href="/menu">Menu</a>
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome To The Fresh Table</h1>
+            <p>Delicious meals, cozy atmosphere, and unforgetable experiences.</p>
+            <a href="/menu" class="btn">View Menu</a>
+        </div>
+    </section>
+
+    <!-- Main content -->
+    <main class="container">
+        <section>
+            <h2>Our Story</h2>
+            <p>
+                At The Fresh Table, we believe food should be an experience.
+                From our carefully crafted recipes to our warm hospitality,
+                we are here to make every meal special.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            &copy; 2025 The Fresh Table. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
