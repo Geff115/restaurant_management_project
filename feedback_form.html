@@ -1,10 +1,22 @@
 {% extends "base.html" %}
 
-{% block content %}
-    <h2>Leave Your Feedback</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit Feedback</button>
-    </form>
-{% end block %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    {% block content %}
+        <h2>Leave Feedback</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label for="{{ form.comment.id_for_label }}">Your Feedback:</label>
+            {{ form.comment }}
+            <button type="submit">Submit</button>
+        </form>
+    {% end block %}
+</body>
+</html>
