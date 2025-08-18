@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}The Fresh Table{% end block %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <link href="/home">Home</link>
+        <link href="/menu">Menu</link>
+        <link href="/contact">Contact</link>
+    </header>
+
+    <main>
+        {% block content %}
+        {% end block %}
+    </main>
+
+    <footer style="margin-top: 20px; padding: 10px; background: #f4f4f4; text-align: center;">
+        <p><strong>Opening Hours:</strong> Mon-Fri: 11am - 9pm, Sat-Sun: 10am - 10pm</p>
+    </footer>
+</body>
+</html>
