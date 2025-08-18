@@ -1,4 +1,6 @@
+{% extends 'base.html' %}
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +33,14 @@
         </div>
     </section>
 
+    <!-- Search bar -->
+    <section class="search-bar">
+        <form method="get" action="#">
+            <input type="text" name="q" placeholder="Search menu items" required>
+            <button type="submit">Search</button>
+        </form>
+    </section>
+
     <!-- Contact section -->
     <section class="contact">
         <div class="contact-card">
@@ -53,7 +63,7 @@
 
     <footer>
         <div class="container">
-            &copy; 2025 The Fresh Table. All rights reserved.
+            &copy; 2025 🍽️ The Fresh Table. All rights reserved.
         </div>
     </footer>
 </body>
