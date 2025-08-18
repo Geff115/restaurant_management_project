@@ -169,7 +169,7 @@ p {
 
 .btn:hover,
 .btn:focus {
-    background-color: #059669  /* Green */
+    background-color: #059669;  /* Green */
     transform: translateY(-2px);
 }
 
@@ -197,4 +197,83 @@ footer {
     .hero p {
         font-size: 1rem;
     }
+}
+
+/* contact section */
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 1rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1));
+}
+
+.contact-card {
+    max-width: 500px;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+
+    /* Glassmorphism style */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.contact-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.contact-card p {
+    font-size: 1.2rem;
+    color: #f1f1f1;
+}
+
+.contact-card strong {
+    font-weight: bold;
+    color: #ffd700;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.search-bar {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.search-bar input {
+    padding: 8px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-bar button {
+    padding: 8px 15px;
+    margin-left: 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #555;
 }
