@@ -48,7 +48,7 @@
                         let name = document.getElementById("name").value.trim();
                         let email = document.getElementById("email").value.trim();
 
-                        if (name === "" | email === "") {
+                        if (name === "" || email === "") {
                             alert("Please fill in both name and email fields");
                             event.preventDefault();  // Stop form submission
                         }
