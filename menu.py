@@ -1,14 +1,19 @@
-from django.shortcuts import render
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.decorators import api_view
 
-def menu_list(request):
+@api_view(['GET'])
+def get_menu(request):
     """
-    This view displays a list of hardcoded menu items
+    This view returns the restaurant's menu. The menu is
+    hardcoded for now. In a real implementation, it'll be
+    fetched from the database.
     """
-    menu_items = [
-        {"name": "Jollof Rice & Chicken", "price": "13.50", "description": "Classic jollof made with chicken seasoning, fresh tomatoes, diced beef, marinated chicken, and carrots."},
-        {"name": "Pepperoni pizza", "price": "9.50", "description": "Tomato sauce, mozzarella, and spicy pepperoni."},
-        {"name": "Chicken & Chips", "price": "11.50", "description": "sweet potato fries or irish potato fries + crunchy spiced chicken or marinated chicken barbecue"},
-        {"name": "Veggie Burger", "price": "7.00", "description": "Grilled veggie patty with lettuce, tomato, and vegan mayo."}
+    menu = [
+        {"name": "Spaghetti and Grilled Turkey", "description": "Classic Italian dish and a marinated turkey", "price": 12.50},
+        {"name": "Grilled Salmon", "description": "Fresh salmon fillet with lemon butter sauce", "price": 15.99},
+        {"name": "Pizza Margherita", "description": "Classic cheese and tomato pizza", "price": 8.99},
+        {"name": "Classic Caesar Salad", "description": "Romaine lettuce, croutons, and Caesar dressing", "price": 7.50},
     ]
-
-    return render(request, "menu_list.html", {"menu_items": menu_items})
+    return Response(menu, status=status.HTTP_200_OK)
+    
