@@ -53,7 +53,15 @@
         <div class="contact-card">
             <h2>Contact Us</h2>
             <p>📞 Call us at: <strong>{{ phone }}</strong></p>
+
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Submit</button>
+            </form>
         </div>
+
+    
         <div class="visit-us">
             <h2>Visit Us</h2>
             <p><strong>Adress: </strong>150 Ibukun Olu street, Lagos, Nigeria</p>
@@ -69,6 +77,8 @@
                   loading="lazy"
                   referrerpolicy="no-refer-when-downgrade"
                 ></iframe>
+            </div>
+        </div>
     </section>
 
     <!-- Main content -->
